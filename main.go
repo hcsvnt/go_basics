@@ -96,6 +96,7 @@ func stringStuff() {
 	greeting := "hello there, mate"
 
 	fmt.Println("does this string contain 'hello'?", strings.Contains(greeting, "hello"))
+	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
 }
 
 
