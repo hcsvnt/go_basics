@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 )
 
@@ -97,6 +98,60 @@ func stringStuff() {
 
 	fmt.Println("does this string contain 'hello'?", strings.Contains(greeting, "hello"))
 	fmt.Println(strings.ReplaceAll(greeting, "hello", "hi"))
+	fmt.Println(strings.ToUpper(greeting))
+	fmt.Println(strings.ToLower(greeting))
+	fmt.Println(strings.Index(greeting, "mate"))
+	fmt.Println(strings.Split(greeting, " "))
+}
+
+
+func sortStuff() {
+	ages := []int{1, 22, 3, 4, 5, 6, 7, 8, 9}
+
+	// transorms the original slice
+	sort.Ints(ages)
+	fmt.Println(ages)
+
+	// if doesn't exist, returns length of slice + 1
+	index := sort.SearchInts(ages, 77)
+	fmt.Println((index))
+
+
+	names := []string{"mati", "maciek", "wario"}
+	sort.Strings(names)
+	fmt.Println(names)
+	fmt.Println(sort.SearchStrings(names, "maciek"))
+}
+
+
+func loopStuff() {
+
+	// x := 0
+	// for x < 5 {
+	// 	fmt.Println(x)
+	// 	x++
+	// }
+
+	// for i := 0; i < 5; i++ {
+	// 	fmt.Println(i)
+	// }
+
+	names := []string{"mati", "maciek", "wario"}
+
+	// for i := 0; i < len(names); i++ {
+	// 	fmt.Println(names[i])
+	// }
+
+	// for index, value := range names {
+	// 	fmt.Println(index, value)
+	// }
+
+	// omit index
+	for _, value := range names {
+		fmt.Println(value)
+		// this will not modify the original slice, it's just a copy / reference?
+		value = "new value"
+	}
 }
 
 
@@ -107,5 +162,8 @@ func main() {
 	// arrays()
 	// slices()
 
-	stringStuff()
+	// stringStuff()
+
+	// sortStuff()
+	loopStuff()
 }
