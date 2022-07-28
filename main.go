@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 	"sort"
 	"strings"
 )
@@ -155,6 +156,66 @@ func loopStuff() {
 }
 
 
+func booleans() {
+	age := 45
+	// fmt.Println(age < 99)
+
+	if age < 30 {
+		fmt.Println("less than 30")
+	} else if age >= 45 {
+		fmt.Println("more or equal to 45")
+	}
+
+	names := []string{"mati", "maciek", "wario", "jacek", "kuba"}
+
+	for index, value := range names {
+		if index == 1 {
+			fmt.Println("continue at pos", index)
+			// continue breaks out of the flow (omits whatever's after) and goes back up to continue with the loop
+			continue
+		}
+		if index > 2 {
+			fmt.Println("breaking at position", index)
+			// breaks out of the loop completely
+			break
+		}
+
+		fmt.Printf("the value at pos %v is %v \n", index, value)
+	}
+}
+
+
+// functions
+
+func greet(message string) {
+	fmt.Println(message)
+}
+
+// pass slice (array) and function then iterate slice and run function for each index
+func cycleNames(slice []string, fn func(string)) {
+	for _, value := range slice {
+		fn(value)
+	}
+}
+
+// return - need to specify a return value
+func circleArea(r float64) float64 {
+	return math.Pi * r * r
+}
+
+
+func functions() {
+	names := []string{"mati", "maciek", "wario", "jacek", "kuba"}
+	greet("hejka slodziaku!")
+
+	cycleNames(names, greet)
+	area1 := circleArea(13)
+	fmt.Println(area1, "sq smth")
+	// three decimal places
+	fmt.Printf("%0.3f sq smth", area1)
+}
+
+
 
 func main() {
 	// print()
@@ -165,5 +226,8 @@ func main() {
 	// stringStuff()
 
 	// sortStuff()
-	loopStuff()
+	// loopStuff()
+	// booleans()
+
+	functions()
 }
